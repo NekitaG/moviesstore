@@ -47,6 +47,7 @@
                 <hr />
                 <ul class="list-group">
                     {% for review in template_data.reviews %}
+                    {% if not review.mark_inappropriate %}
                     <li class="list-group-item pb-3 pt-3">
                         <h5 class="card-title">
                             Review by {{ review.user.username }}
@@ -68,6 +69,15 @@
                             href="{% url 'movies.delete_review' id=template_data.movie.id review_id=review.id %}">
                             Delete
                         </a>
+                        {% endif %}
+
+                        {% if user.is_authenticated and user != review.user %}
+                        <a class="btn btn-primary"
+                            href="{% url 'movies.mark_inappropriate' id=template_data.movie.id review_id=review.id %}">
+                            Report Inappropriate
+                        </a>
+                        {% endif %}
+
 
                         {% endif %}
 
