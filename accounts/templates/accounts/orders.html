@@ -15,8 +15,8 @@
                             </div>
 
                             <div class="card-body">
-                                <b>Date: {{ order.date }}</b> <br />
-                                <b>Total: {{ order.total }}</b> <br />
+                                <b>Date:</b> {{ order.date }}<br />
+                                <b>Total:</b> {{ order.total }}<br />
 
                                 <table class="table table-bordred table-striped text-center mt-3">
                                     <thead>
@@ -39,7 +39,7 @@
                                                 </a>
                                             </td>
                                             <td>{{ item.movie.price }}</td>
-                                            <td>{{ item.movie.quantity }}</td>
+                                            <td>{{ item.quantity }}</td>
                                         </tr>
                                         {% endfor %}
                                     </tbody>
